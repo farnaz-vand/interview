@@ -35,7 +35,13 @@ export default function FormNode({ node, path = '' }) {
 
   if (type === 'element_sequence') {
     return (
-      <div >      
+      <div
+        style={{
+          marginLeft: 16,
+          borderLeft: '1px solid #eee',
+          paddingLeft: 10,
+        }}
+      >
         <h4>{nodeName}</h4>
         {renderChildren()}
       </div>
@@ -49,6 +55,7 @@ export default function FormNode({ node, path = '' }) {
   if (elementType?.enumeration) {
     return (
       <RHFSelect
+        sx={{ mb: 1, mt: 1 }}
         name={pathField}
         label={nodeName}
         placeholder={node?.description}
@@ -67,6 +74,7 @@ export default function FormNode({ node, path = '' }) {
 
   return (
     <RHFTextField
+      sx={{ mb: 1, mt: 1 }}
       name={pathField}
       label={nodeName}
       placeholder={node?.description}
