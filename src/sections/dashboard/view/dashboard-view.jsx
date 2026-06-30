@@ -10,7 +10,7 @@ import data from '../../../../public/data.json';
 import FormNode from './form_node';
 
 export default function DashboardView() {
-  console.log('Full JSON Content:', data);
+  // console.log('Full JSON Content:', data);
   const methods = useForm();
 
   const { handleSubmit } = methods;
@@ -20,9 +20,8 @@ export default function DashboardView() {
     JSON.stringify(formValues, (key, value) => (value === undefined ? undefined : value))
   );
 
-  console.log('Final Clean JSON:', cleaned);
+  // console.log('Final Clean JSON:', cleaned);
 });
-
 
   return (
     <>
@@ -30,9 +29,8 @@ export default function DashboardView() {
         Welcome to RUNC!
       </Typography>
       <Form methods={methods} onSubmit={onSubmit}>
-    <FormNode node={data.appHdr.element} />
-
-    <button type='submit'>submit</button>
+      <FormNode node={data.appHdr.element} />
+      <button type='submit'>submit</button>
       </Form>
     </>
   );
