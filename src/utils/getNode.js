@@ -33,12 +33,3 @@ export function buildRules(node, restriction) {
   }
   return { rules, min, max, isRequired };
 }
-
-
-// export function renderChildren(elementType, pathField) {
-//   return elementType.children?.map((group, gIdx) =>
-//     group.map((child, cIdx) => (
-//       <FormNode key={`${pathField}-${gIdx}-${cIdx}`} node={child} path={pathField} />
-//     ))
-//   );
-// }

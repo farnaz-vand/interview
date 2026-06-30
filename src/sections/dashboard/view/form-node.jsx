@@ -17,14 +17,10 @@ export default function FormNode({ node, path = '' }) {
 
   const { rules, min, max, isRequired } = buildRules(node, restriction);
 
-   const renderChildren = () =>
+  const renderChildren = () =>
     elementType.children?.map((group, gIdx) =>
       group.map((child, cIdx) => (
-        <FormNode
-          key={`${pathField}-${gIdx}-${cIdx}`}
-          node={child}
-          path={pathField}
-        />
+        <FormNode key={`${pathField}-${gIdx}-${cIdx}`} node={child} path={pathField} />
       ))
     );
 
