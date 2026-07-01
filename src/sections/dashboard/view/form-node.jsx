@@ -8,6 +8,7 @@ export default function FormNode({ node, path = '' }) {
   if (!node) return null;
 
   const nodeName = node?.name || 'root';
+  const label = node?.verbose_name || nodeName;
   const elementType = node?.element_type || {};
   const restriction = elementType?.restriction || {};
   const type = elementType?.type;
@@ -27,7 +28,7 @@ export default function FormNode({ node, path = '' }) {
   if (type === 'choice') {
     return (
       <div>
-        <h5>choice: {nodeName}</h5>
+        <h5>choice: {label}</h5>
         {renderChildren()}
       </div>
     );
@@ -42,14 +43,14 @@ export default function FormNode({ node, path = '' }) {
           paddingLeft: 10,
         }}
       >
-        <h4>{nodeName}</h4>
+        <h4>{label}</h4>
         {renderChildren()}
       </div>
     );
   }
 
   if (baseType === 'boolean') {
-    return <RHFCheckbox name={pathField} label={nodeName} defaultValue={false} />;
+    return <RHFCheckbox name={pathField} label={label} defaultValue={false} />;
   }
 
   if (elementType?.enumeration) {
@@ -57,7 +58,7 @@ export default function FormNode({ node, path = '' }) {
       <RHFSelect
         sx={{ mb: 1, mt: 1 }}
         name={pathField}
-        label={nodeName}
+        label={label}
         placeholder={node?.description}
         required={isRequired}
         defaultValue=""
@@ -76,7 +77,7 @@ export default function FormNode({ node, path = '' }) {
     <RHFTextField
       sx={{ mb: 1, mt: 1 }}
       name={pathField}
-      label={nodeName}
+      label={label}
       placeholder={node?.description}
       required={isRequired}
       defaultValue=""
