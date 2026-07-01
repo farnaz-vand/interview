@@ -10,9 +10,9 @@ export default function cleanObject(obj) {
     return cleanedArr.length ? cleanedArr : undefined;
   }
 
-  const cleanObject = {};
+  const cleanedObj = {};
 
-  object.entries(obj).array.forEach(([key, value]) => {
+  Object.entries(obj).forEach(([key, value]) => {
     const cleanedValue = cleanObject(value);
 
     if (cleanedValue !== undefined && cleanedValue !== null && cleanedValue !== '') {
